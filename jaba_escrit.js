@@ -1,3 +1,5 @@
+var varnoseX
+var varnoseY
 function preload(){
     console.log("C ME ESCUCHA???? OLA???? ME OLLEN????? GUAU!! NO ME OLLEN!!!!! BYE!!!??")
     img= loadImage("CUADRADO PRO.png")
@@ -10,8 +12,6 @@ function setup(){
     neurored= ml5.poseNet(camaweb,chicargo)
     neurored.on("pose",pooseeNeet)
 }
-function draw(){
-}
 function chicargo(){
     console.log("CHI CARGO MENSO QUE NO VES???!!!")
 }
@@ -21,4 +21,9 @@ function pooseeNeet(results){
     varnoseX= results[0].pose.nose.x
     varleftwristX= results[0].pose.leftWrist.x
     varrightwristX= results[0].pose.rightWrist.x
+    diferencia= varleftwristX-varrightwristX
+}
+function draw(){
+    background("white")
+    image(img,varnoseX,varnoseY,diferencia,diferencia)
 }
